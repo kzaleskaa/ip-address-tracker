@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <title>IP Address Tracker</title>
+
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="site_name">IP Address Tracker</h1>
+    <form class="ip_form">
+      <input class="ip_form__input" placeholder="Search for any IP address or domain" type="text"
+        pattern="^(([0-9a-fA-F]{1}|[1-9a-fA-F]{1}[0-9a-fA-F]{1,3}):){7}([0-9a-fA-F]{1}|[1-9a-fA-F]{1}[0-9a-fA-F]{1,3})$">
+      <button class="ip_form__btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+          <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" /></svg></button>
+    </form>
+    <div class="ip_info">
+      <div class="ip_info__container">
+        <p class="ip_info__label">IP Address</p>
+        <p class="ip_info__item">192.212.174.101</p>
+      </div>
+      <div class="ip_info__container">
+        <p class="ip_info__label">Location</p>
+        <p class="ip_info__item">Brooklyn, NY 10001</p>
+      </div>
+      <div class="ip_info__container">
+        <p class="ip_info__label">Timezone</p>
+        <p class="ip_info__item">UTC-05:00</p>
+      </div>
+      <div class="ip_info__container">
+        <p class="ip_info__label">ISP</p>
+        <p class="ip_info__item">SpaceX Starlink</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div id="map">
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
