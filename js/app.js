@@ -1,3 +1,5 @@
+import { ipRgx, urlRgx } from "./rgx.js";
+
 const form = document.querySelector(".ip_form");
 const input = document.querySelector(".ip_form__input");
 const addressInfo = document.getElementById("ip_address");
@@ -7,15 +9,10 @@ const ispInfo = document.getElementById("isp");
 
 let MAP, MARKER;
 
-// validate entered IP or domain
-const ipRgx =
-  /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/gi;
-
-const urlRgx =
-  /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+// validate entered IP (v4, v6) or domain
 
 let url =
-  "https://geo.ipify.org/api/v2/country,city?apiKey=at_t9IcNihh5h1gVRAoIiriG3yL1j45g";
+  "https://geo.ipify.org/api/v2/country,city?apiKey=at_t9IcNihh5h1gVRAoIiriG3yL1j45g&";
 
 const validate = (enteredData) => {
   input.value = "";
@@ -52,7 +49,7 @@ const fetchLocation = async (enteredData) => {
 
 // initialize map
 const initializeMap = () => {
-  MAP = L.map("map").setView([51.505, -0.09], 13);
+  MAP = L.map("map").setView([52.17072, 20.81214], 13);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
@@ -64,7 +61,7 @@ const initializeMap = () => {
     iconSize: [24, 34],
   });
 
-  MARKER = L.marker([51.5, -0.09], { icon: icon }).addTo(MAP);
+  MARKER = L.marker([52.17072, 20.81214], { icon: icon }).addTo(MAP);
   MARKER.bindPopup("").openPopup();
 
   fetchLocation();
@@ -72,8 +69,6 @@ const initializeMap = () => {
 
 // update information
 const setData = (data) => {
-  console.log(data);
-
   addressInfo.innerText = data.ip;
   locationInfo.innerText = `${data.location.city}, ${data.location.country}`;
   timezoneInfo.innerText = `UTC${data.location.timezone}`;
@@ -85,7 +80,7 @@ const setData = (data) => {
 
 // update map's and marker's location
 const changeMapLocataion = (lat, lng, isp) => {
-  MAP.flyTo([lat, lng], 10, { animate: true, duration: 0.4 });
+  MAP.flyTo([lat, lng], 13, { animate: true, duration: 0.4 });
 
   MARKER.setLatLng([lat, lng]);
   MARKER.getPopup().setContent(isp);

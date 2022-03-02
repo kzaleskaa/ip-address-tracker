@@ -23,30 +23,28 @@
 
 <body>
   <header class="header">
-    <div class="header__container">
-      <h1 class="site_name">IP Address Tracker</h1>
-      <form class="ip_form">
-        <input class="ip_form__input" placeholder="Search for any IP address or domain" type="text">
-        <button class="ip_form__btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
-            <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" /></svg></button>
-      </form>
-      <div class="ip_info">
-        <div class="ip_info__container">
-          <p class="ip_info__label">IP Address</p>
-          <p class="ip_info__item" id="ip_address"></p>
-        </div>
-        <div class="ip_info__container">
-          <p class="ip_info__label">Location</p>
-          <p class="ip_info__item" id="location"></p>
-        </div>
-        <div class="ip_info__container">
-          <p class="ip_info__label">Timezone</p>
-          <p class="ip_info__item" id="timezone"></p>
-        </div>
-        <div class="ip_info__container">
-          <p class="ip_info__label">ISP</p>
-          <p class="ip_info__item" id="isp"></p>
-        </div>
+    <h1 class="site_name">IP Address Tracker</h1>
+    <form class="ip_form">
+      <input class="ip_form__input" placeholder="Search for any IP address or domain" type="text">
+      <button class="ip_form__btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+          <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" /></svg></button>
+    </form>
+    <div class="ip_info">
+      <div class="ip_info__container">
+        <p class="ip_info__label">IP Address</p>
+        <p class="ip_info__item" id="ip_address"></p>
+      </div>
+      <div class="ip_info__container">
+        <p class="ip_info__label">Location</p>
+        <p class="ip_info__item" id="location"></p>
+      </div>
+      <div class="ip_info__container">
+        <p class="ip_info__label">Timezone</p>
+        <p class="ip_info__item" id="timezone"></p>
+      </div>
+      <div class="ip_info__container">
+        <p class="ip_info__label">ISP</p>
+        <p class="ip_info__item" id="isp"></p>
       </div>
     </div>
   </header>
@@ -56,7 +54,8 @@
     </div>
   </main>
 
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/rgx.js"></script>
 </body>
 
 </html>
