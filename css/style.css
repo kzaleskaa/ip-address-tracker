@@ -10,24 +10,25 @@
 }
 
 body {
+  display: grid;
+  grid-template-rows: auto 1fr;
   font-family: "Rubik", sans-serif;
+  min-height: 100vh;
 }
+
 /* HEADER */
 
 .header {
-  height: 25vh;
   background-image: url("../images/pattern-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.header__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   row-gap: 35px;
-  padding-top: 35px;
+  padding-top: 20px;
+  margin-bottom: -35px;
 }
 
 .site_name {
@@ -41,7 +42,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  width: 90%;
+  width: 75%;
   max-width: 400px;
 }
 
@@ -76,7 +77,7 @@ body {
   padding: 20px;
   border-radius: 12px;
   background-color: white;
-  width: 90%;
+  width: 75%;
   max-width: 900px;
   z-index: 10;
 }
@@ -99,12 +100,11 @@ body {
 .ip_info__item {
   font-size: 18px;
 }
-
 /* MAIN */
 
 .main {
   position: relative;
-  min-height: 75vh;
+  min-height: 480px;
   width: 100vw;
   bottom: 0;
 }
