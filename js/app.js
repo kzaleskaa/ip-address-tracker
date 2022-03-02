@@ -8,7 +8,7 @@ const ispInfo = document.getElementById("isp");
 let MAP, MARKER;
 
 let url =
-  "https://geo.ipify.org/api/v2/country,city?apiKey=at_t9IcNihh5h1gVRAoIiriG3yL1j45g&";
+  "https://geo.ipify.org/api/v2/country,city?apiKey=at_t9IcNihh5h1gVRAoIiriG3yL1j45g";
 
 const initializeMap = () => {
   MAP = L.map("map").setView([51.505, -0.09], 13);
@@ -24,10 +24,14 @@ const initializeMap = () => {
   });
 
   MARKER = L.marker([51.5, -0.09], { icon: icon }).addTo(MAP);
+
+  fetchLocation();
 };
 
 const fetchLocation = async (domain) => {
-  url = url.concat(`&domain=${domain}`);
+  if (domain) {
+    url = url.concat(`&domain=${domain}`);
+  }
 
   fetch(url)
     .then((response) => response.json())
@@ -37,13 +41,14 @@ const fetchLocation = async (domain) => {
 
 const setData = (data) => {
   console.log(data);
-  
+
   addressInfo.innerText = data.ip;
-  locationInfo.innerText = `${data.location.region}, ${data.location.country}`;
+  locationInfo.innerText = `${data.location.city}, ${data.location.country}`;
   timezoneInfo.innerText = `UTC${data.location.timezone}`;
   ispInfo.innerText = data.isp;
 
-  changeMapLocataion(data.location.lat, data.location.lng, data.isp);
+  const popupInfo = `${data.location.city}, ${data.ip}`;
+  changeMapLocataion(data.location.lat, data.location.lng, popupInfo);
 };
 
 const changeMapLocataion = (lat, lng, isp) => {
