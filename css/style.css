@@ -95,6 +95,11 @@ body {
   text-transform: uppercase;
   color: var(--dark-gray);
 }
+
+.ip_info__item {
+  font-size: 18px;
+}
+
 /* MAIN */
 
 .main {
